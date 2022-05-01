@@ -11,6 +11,7 @@
 
   --ff-sans: "Poppins", sans-serif;
 
+  --fw-300: 300;
   --fw-400: 400;
   --fw-500: 500;
   --fw-600: 600;
@@ -93,10 +94,6 @@ select {
 }
 
 /* Base styles */
-h1 {
-  line-height: 1.3;
-}
-
 body {
   color: var(--clr-neutral-100);
   font-family: var(--ff-sans);
@@ -105,7 +102,7 @@ body {
 
   display: grid;
   padding: 1.5rem;
-  grid-template-rows: 1fr 3rem;
+  grid-template-rows: 1fr auto;
 
   background-color: var(--clr-primary-400a);
   background-image: url("./images/bg-intro-mobile.png");
@@ -113,25 +110,26 @@ body {
 
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   place-content: center;
 }
 
 /* -------- Header -------- */
 .content-title {
   font-size: 1.7rem;
+  line-height: 1.3;
   font-weight: var(--fw-600);
   margin-bottom: 1em;
 }
 
 .content-subtitle {
+  opacity: 0.8;
   font-size: 1rem;
   margin-bottom: 3rem;
 }
 
 /* -------- Offer widget -------- */
 .offer-widget {
-  color: var(--clr-neutral-100);
   padding: 1.5em 3em;
   margin-bottom: 2rem;
   border-radius: 0.5rem;
@@ -139,11 +137,17 @@ body {
   box-shadow: 0 0.6rem 0rem 0rem rgba(0, 0, 0, 0.15);
 }
 
+.offer-widget-title {
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-300);
+}
+
 .offer-widget-title > span {
+  color: var(--clr-neutral-100);
   font-weight: var(--fw-600);
 }
 
-/* -------- Offer form -------- */
+/* -------- Form -------- */
 .offer-form {
   display: grid;
   gap: 1rem;
@@ -170,23 +174,24 @@ body {
   text-transform: uppercase;
   padding: 1em;
   border: none;
-  background-color: var(--clr-primary-400b);
   border-radius: 0.5rem;
+  background-color: var(--clr-primary-400b);
   box-shadow: inset 0 -0.4rem 0rem 0rem rgba(0, 0, 0, 0.08);
 }
 
 .form-footer-terms {
   color: var(--clr-neutral-200);
+  font-weight: var(--fw-600);
   font-size: 0.825rem;
 }
 
 .form-footer-terms > a {
   color: var(--clr-primary-400a);
-  font-weight: var(--fw-600);
+  font-weight: var(--fw-700);
   text-decoration: none;
 }
 
-/* -------- Footer attribution -------- */
+/* -------- Footer -------- */
 .attribution {
   font-size: 0.825rem;
   font-weight: var(--fw-400);
@@ -197,5 +202,51 @@ body {
   font-size: 1rem;
   font-weight: var(--fw-600);
   text-decoration: none;
+}
+
+/* -------- Breakpoints -------- */
+@media (min-width: 32rem) {
+  body {
+    background-image: url("./images/bg-intro-desktop.png");
+    background-position: center;
+  }
+
+  .content-grid {
+    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 34rem));
+    align-items: center;
+  }
+
+  .content-title {
+    text-align: left;
+    font-size: 3.125rem;
+    line-height: 1.1;
+    font-weight: var(--fw-600);
+    margin-bottom: 1.5rem;
+  }
+
+  .content-subtitle {
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .offer-widget {
+    padding: 1.25em 3em;
+    margin-bottom: 1.5rem;
+  }
+
+  .offer-form {
+    padding: 2.7rem 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .offer-form-input {
+    padding: 1rem 2rem;
+  }
+
+  .form-footer-terms {
+    font-size: 0.7rem;
+  }
 }
 
